@@ -1,0 +1,21 @@
+{
+  "name": "practice-management-guides",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Practice Management Guides - single-file local reference application",
+  "scripts": {
+    "build": "node src/build/build.js",
+    "pdf": "node src/build/pdf.js",
+    "test": "npm run build && node --test \"test/unit/*.test.js\" && node test/e2e/run.js",
+    "test:unit": "node --test \"test/unit/*.test.js\"",
+    "test:e2e": "node test/e2e/run.js",
+    "content:apply": "node src/build/author-edits.js"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "markdown-it": "^14.3.2",
+    "pdfjs-dist": "^4.10.38",
+    "playwright": "^1.63.0"
+  },
+  "type": "module"
+}

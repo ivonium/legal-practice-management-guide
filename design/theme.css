@@ -1,0 +1,1232 @@
+/* ==========================================================================
+   Practice Management Guides — theme.css
+   Instruction Sheet B, Claude Design. Drop in AFTER app.css; overrides
+   variables only, plus additive component rules. No DOM changes, no class
+   renames. Light values on :root, dark under prefers-color-scheme.
+
+   Royal purple carries structure. Gold is a hairline, a rule, a small mark —
+   never a fill, never type. White wins.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Fonts
+   Source Serif 4 (body) and Source Sans 3 (headings, UI) must be SUBSET and
+   BASE64-EMBEDDED by the build — the file makes no network requests.
+   Replace each url() below with a data: URI at build time (see DESIGN_NOTES).
+   Until then the Georgia / system fallbacks apply and the design still holds.
+   -------------------------------------------------------------------------- */
+/*
+@font-face {
+  font-family: 'Source Serif 4 Subset';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: block;
+  src: url('data:font/woff2;base64,...') format('woff2');
+}
+@font-face {
+  font-family: 'Source Sans 3 Subset';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: block;
+  src: url('data:font/woff2;base64,...') format('woff2');
+}
+*/
+
+/* --------------------------------------------------------------------------
+   2. Tokens — light
+   -------------------------------------------------------------------------- */
+:root {
+  --color-bg: #fbfafd;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f4f1f8;
+  --color-text: #1f1a26;
+  --color-text-muted: #6b6478;
+  --color-primary: #4b2a85;
+  --color-primary-soft: #eae3f4;
+  --color-accent: #b8952e;
+  --color-accent-soft: #f5efdd;
+  --color-border: #e3deea;
+  --color-link: #3f2470;
+  --color-link-visited: #5a3d8a;
+  --color-focus: #b8952e;
+  --color-note-bg: #fff9e8;
+  --color-note-border: #e6cf8b;
+  --color-edit-bg: #eef7f0;
+  --color-edit-border: #9cc9a8;
+  --color-warning-bg: #fff4e5;
+  --color-warning-border: #e8b86d;
+  --color-danger-bg: #fcebeb;
+  --color-danger-border: #d98c8c;
+  --color-success: #2e7d32;
+
+  /* one step lighter than --color-primary: hover on filled purple controls */
+  --color-primary-hover: #5e3aa8;
+  /* one step darker than --color-surface-alt: hover on rail rows and list rows */
+  --color-row-hover: #efebf7;
+
+  --font-body: 'Source Serif 4 Subset', 'Source Serif 4', Georgia, serif;
+  --font-heading: 'Source Sans 3 Subset', 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+
+  --fs-base: 17px;
+  --fs-sm: 0.82rem;
+  --fs-lg: 1.1rem;
+  --fs-h1: 2rem;
+  --fs-h2: 1.35rem;
+  --fs-h3: 1.06rem;
+  --fs-h4: 0.94rem;
+  --lh-body: 1.6;
+  --measure: 70ch;
+
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --shadow-sm: 0 1px 2px rgba(31, 26, 38, 0.05);
+  --shadow-md: 0 8px 22px rgba(31, 26, 38, 0.14);
+
+  /* Fine diagonal lattice, 30 degrees, gold hairline. Three placements only:
+     the topbar band, the H2 divider rule, the guide-card corner. */
+  --pattern-header: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='16'%3E%3Cpath d='M0 16 L28 0 M-14 16 L14 0 M14 16 L42 0' stroke='%23D4B45A' stroke-width='0.6' stroke-opacity='0.38' fill='none'/%3E%3C/svg%3E");
+  --pattern-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='16'%3E%3Cpath d='M0 16 L28 0 M-14 16 L14 0 M14 16 L42 0' stroke='%23B8952E' stroke-width='1' stroke-opacity='0.55' fill='none'/%3E%3C/svg%3E");
+  --pattern-corner: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84'%3E%3Cg stroke='%23B8952E' stroke-width='0.7' stroke-opacity='0.5' fill='none'%3E%3Cpath d='M84 0 L36 48 M84 16 L52 48 M84 32 L68 48'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* --------------------------------------------------------------------------
+   3. Tokens — dark. Purple lightens, gold warms, the pattern stays faint.
+   -------------------------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #14111a;
+    --color-surface: #1c1824;
+    --color-surface-alt: #241f2e;
+    --color-text: #ece8f1;
+    --color-text-muted: #a9a2b6;
+    --color-primary: #9c7fd6;
+    --color-primary-soft: #2e2540;
+    --color-accent: #d4b45a;
+    --color-accent-soft: #3a3222;
+    --color-border: #332c3f;
+    --color-link: #b39de3;
+    --color-link-visited: #c2a6ea;
+    --color-focus: #d4b45a;
+    --color-note-bg: #2a2517;
+    --color-note-border: #8a7440;
+    --color-edit-bg: #172519;
+    --color-edit-border: #4c7f58;
+    --color-warning-bg: #2c2214;
+    --color-warning-border: #9c7a3e;
+    --color-danger-bg: #2d1616;
+    --color-danger-border: #8f4747;
+    --color-success: #6fbf73;
+
+    --color-primary-hover: #b094e4;
+    --color-row-hover: #2a2436;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 8px 22px rgba(0, 0, 0, 0.6);
+
+    --pattern-header: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='16'%3E%3Cpath d='M0 16 L28 0 M-14 16 L14 0 M14 16 L42 0' stroke='%23D4B45A' stroke-width='0.6' stroke-opacity='0.3' fill='none'/%3E%3C/svg%3E");
+    --pattern-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='16'%3E%3Cpath d='M0 16 L28 0 M-14 16 L14 0 M14 16 L42 0' stroke='%23D4B45A' stroke-width='1' stroke-opacity='0.5' fill='none'/%3E%3C/svg%3E");
+    --pattern-corner: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84'%3E%3Cg stroke='%23D4B45A' stroke-width='0.7' stroke-opacity='0.45' fill='none'%3E%3Cpath d='M84 0 L36 48 M84 16 L52 48 M84 32 L68 48'/%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. Typography
+   -------------------------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  text-wrap: pretty;
+}
+.guide-title,
+.landing-title {
+  color: var(--color-primary);
+  letter-spacing: -0.01em;
+}
+.guide-title {
+  border-bottom: 1px solid var(--color-accent);
+  padding-bottom: var(--space-4);
+  max-width: 30ch;
+}
+.section--h2 > .section-head .section-title {
+  color: var(--color-primary);
+}
+.section--h3 > .section-title,
+.section--h3 .section-title {
+  color: var(--color-primary);
+}
+/* the heading number stays part of the heading, set muted */
+.section-title .section-number,
+.toc-number {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+/* bold lead-ins: heavier at the start of a paragraph than mid-sentence bold */
+.block--paragraph .block-content > p > strong:first-child,
+.block-content > p > strong:first-child {
+  font-weight: 700;
+}
+.block-content strong {
+  font-weight: 600;
+}
+p,
+li {
+  text-wrap: pretty;
+}
+
+/* --------------------------------------------------------------------------
+   5. Focus — 2px gold ring, always visible
+   -------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   6. Buttons and controls
+   -------------------------------------------------------------------------- */
+.btn,
+button.btn {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  border-radius: var(--radius-sm);
+  box-shadow: none;
+}
+.btn:hover {
+  background: var(--color-row-hover);
+  border-color: var(--color-primary);
+}
+.btn--primary {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+.btn--primary:hover {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  filter: none;
+}
+.btn--danger {
+  background: var(--color-danger-bg);
+  border-color: var(--color-danger-border);
+  color: var(--color-text);
+}
+.btn.is-active {
+  background: var(--color-primary-soft);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.btn-link {
+  color: var(--color-link);
+}
+.btn-link:hover {
+  color: var(--color-primary);
+}
+input,
+select,
+textarea {
+  border-radius: var(--radius-sm);
+}
+.progress {
+  height: 4px;
+  border: 0;
+  background: var(--color-surface-alt);
+}
+.progress-fill {
+  background: var(--color-primary);
+}
+.badge {
+  font-family: var(--font-heading);
+}
+
+/* --------------------------------------------------------------------------
+   7. Topbar — purple band, gold hairline, lattice pattern.
+   Controls carry a solid purple fill so the pattern stops at their edges.
+   -------------------------------------------------------------------------- */
+.topbar {
+  background: var(--color-primary);
+  background-image: var(--pattern-header);
+  border-bottom: 1px solid var(--color-accent);
+  height: auto;
+  min-height: var(--toolbar-height);
+  padding: var(--space-2) var(--space-4);
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+}
+.topbar .app-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: #fff;
+}
+.topbar .rail-toggle,
+.topbar .btn,
+.topbar .theme-indicator,
+.topbar a.btn {
+  background: var(--color-primary);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  color: #fff;
+}
+.topbar .btn:hover,
+.topbar .rail-toggle:hover,
+.topbar a.btn:hover {
+  background: var(--color-primary-hover);
+  border-color: rgba(255, 255, 255, 0.72);
+  color: #fff;
+}
+.topbar .theme-indicator,
+.topbar .saved-indicator {
+  color: rgba(255, 255, 255, 0.82);
+  border-color: rgba(255, 255, 255, 0.34);
+}
+.topbar .saved-indicator[data-state='saved'] {
+  color: #d7f0d9;
+}
+/* Search is the prominent element: white field on the purple band */
+.search input[type='search'] {
+  background: var(--color-surface);
+  border-color: rgba(255, 255, 255, 0.3);
+  min-width: 200px;
+  padding: var(--space-2) var(--space-3);
+}
+.search-scope {
+  border-color: rgba(255, 255, 255, 0.42);
+}
+.scope-btn {
+  font-family: var(--font-heading);
+  background: var(--color-primary);
+  color: #fff;
+}
+.scope-btn:hover {
+  background: var(--color-primary-hover);
+}
+.scope-btn.is-active {
+  background: #fff;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+/* Gold on purple is about 2.3:1, so inside the band the ring goes white
+   (BUILD_NOTES 52). Outside it, the gold ring from section 5 still applies. */
+.topbar :focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+/* except on the white search field and the active scope button, where white
+   would be invisible: there the gold ring reads correctly */
+.topbar .search input[type='search']:focus-visible,
+.topbar .scope-btn.is-active:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+.edit-banner {
+  font-family: var(--font-heading);
+  background: var(--color-edit-bg);
+  border-bottom: 1px solid var(--color-edit-border);
+}
+body.is-editing .topbar #edit-toggle {
+  background: var(--color-edit-border);
+  border-color: var(--color-edit-border);
+  color: #12200f;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   8. Search results
+   -------------------------------------------------------------------------- */
+.search-results {
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+.search-result {
+  font-size: var(--fs-sm);
+}
+.search-result-meta,
+.search-guide,
+.search-section {
+  font-family: var(--font-heading);
+  color: var(--color-text-muted);
+}
+.search-snippet {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+.search-snippet mark,
+mark.search-hit {
+  background: var(--color-accent-soft);
+  color: var(--color-text);
+  padding: 0 2px;
+}
+
+/* --------------------------------------------------------------------------
+   9. Rails
+   -------------------------------------------------------------------------- */
+.rail-left {
+  background: var(--color-surface-alt);
+  font-family: var(--font-heading);
+  padding: var(--space-5) 0 var(--space-6);
+}
+.rail-left > *,
+.rail-left .rail-section {
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+.rail-guides a {
+  display: block;
+  padding: var(--space-2) var(--space-4) var(--space-2) calc(var(--space-4) - 3px);
+  margin-left: calc(var(--space-4) * -1);
+  border-left: 3px solid transparent;
+  color: var(--color-text);
+}
+.rail-guides a:hover {
+  background: var(--color-row-hover);
+  border-left-color: rgba(75, 42, 133, 0.28);
+  text-decoration: none;
+}
+/* current guide: purple-soft with a 3px gold left bar */
+.rail-guide.is-current > a {
+  background: var(--color-primary-soft);
+  border-left-color: var(--color-accent);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+.rail-sections {
+  border-left: 1px solid var(--color-border);
+  font-size: 0.78rem;
+}
+.rail-h2.is-current > a,
+.rail-h3 .is-current > a,
+.mini-toc .is-current > a {
+  color: var(--color-primary);
+}
+.rail-links a {
+  color: var(--color-link);
+}
+.rail-links a:hover {
+  color: var(--color-primary);
+}
+.rail-right,
+.rail-left {
+  font-size: var(--fs-sm);
+}
+.rail-section h3,
+.notes-area-label,
+.rail-right h3 {
+  font-family: var(--font-heading);
+  font-size: 0.66rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   10. Landing
+   -------------------------------------------------------------------------- */
+.landing > .landing-title,
+.landing > .landing-intro {
+  max-width: var(--measure);
+}
+.guide-cards {
+  grid-template-columns: repeat(auto-fill, minmax(324px, 1fr));
+  gap: var(--space-5);
+}
+.guide-card {
+  border-radius: var(--radius-md);
+  background-image: var(--pattern-corner);
+  box-shadow: var(--shadow-sm);
+}
+.guide-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.06rem;
+}
+.guide-card-title a {
+  color: var(--color-primary);
+}
+.guide-card-title a:hover {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+}
+.guide-card-currency,
+.guide-card-progress {
+  font-family: var(--font-heading);
+}
+.guide-card-desc {
+  font-size: 0.95rem;
+}
+.guide-card-actions {
+  align-items: center;
+  gap: var(--space-4);
+}
+/* "Read summary" is a text button with a gold hairline */
+.read-summary-btn {
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--color-accent);
+  border-radius: 0;
+  padding: 0;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+}
+.read-summary-btn:hover {
+  background: none;
+  color: var(--color-primary-hover);
+  border-bottom-color: var(--color-primary);
+}
+.landing-next30 {
+  border-radius: var(--radius-md);
+}
+.landing-next30 h2 {
+  font-family: var(--font-heading);
+  font-size: 0.94rem;
+  color: var(--color-primary);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-2);
+  background-image: var(--pattern-divider);
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 34px 2px;
+}
+.landing-links a {
+  font-family: var(--font-heading);
+  color: var(--color-link);
+}
+.landing-links a:hover {
+  background: var(--color-row-hover);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   11. Executive summary
+   -------------------------------------------------------------------------- */
+.exec-summary,
+.guide-contents {
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+}
+.exec-summary-title {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+}
+.exec-summary-intro {
+  font-size: 1rem;
+}
+.exec-summary-label {
+  font-family: var(--font-heading);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+/* a gold rule above and below the list */
+.exec-summary-body {
+  border-top: 1px solid var(--color-accent);
+  border-bottom: 1px solid var(--color-accent);
+  padding: var(--space-3) 0;
+  margin: var(--space-3) 0 0;
+}
+.exec-summary-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 1000px) {
+  .exec-summary-list {
+    columns: 2;
+    column-gap: var(--space-6);
+  }
+}
+.exec-summary-list li {
+  break-inside: avoid;
+  margin: 0;
+}
+.exec-summary-list li > a,
+.exec-summary-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  text-decoration: none;
+}
+.exec-summary-list li > a:hover {
+  background: var(--color-primary-soft);
+  text-decoration: underline;
+}
+/* the "§ n" reference reads as a chip, aligned to the first line */
+.summary-ref {
+  align-self: flex-start;
+  margin-left: auto;
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+  border-radius: var(--radius-sm);
+  padding: 1px 6px;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   11a. The executive-summary slide-over
+   Retargeted 13 September 2026 to the native <dialog class="summary-slideover">
+   built by Claude Code (BUILD_NOTES 46). The dialog owns Esc, focus containment
+   and the backdrop; this section is presentation only.
+   -------------------------------------------------------------------------- */
+/* scoped to [open] (Claude Code, 13 September 2026, BUILD_NOTES 53): a closed dialog must keep the UA display:none */
+dialog.summary-slideover[open] {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: auto;
+  width: min(760px, 92vw);
+  max-width: none;
+  max-height: 100dvh;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 0;
+  border-left: 1px solid var(--color-border);
+  border-radius: 0;
+  box-shadow: -8px 0 28px rgba(31, 26, 38, 0.14);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+}
+dialog.summary-slideover::backdrop {
+  background: rgba(31, 26, 38, 0.34);
+}
+.slideover-head {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6) var(--space-3);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+/* the gold eyebrow above the title */
+.slideover-head::before {
+  content: 'Executive summary';
+  position: absolute;
+  font-family: var(--font-heading);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+.slideover-title {
+  margin: var(--space-4) 0 0;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--fs-h2);
+  line-height: 1.2;
+  color: var(--color-primary);
+}
+.slideover-close {
+  margin-left: auto;
+  flex: 0 0 auto;
+  font-family: var(--font-heading);
+  font-size: var(--fs-sm);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-primary);
+  cursor: pointer;
+}
+.slideover-close:hover {
+  background: var(--color-row-hover);
+  border-color: var(--color-primary);
+}
+.slideover-body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--space-4) var(--space-6) var(--space-7);
+}
+/* the list inside the slide-over is wide enough for two columns */
+@media (min-width: 900px) {
+  .slideover-body .exec-summary-list {
+    columns: 2;
+    column-gap: var(--space-6);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  dialog.summary-slideover::backdrop {
+    background: rgba(0, 0, 0, 0.55);
+  }
+}
+@media print {
+  /* summaries print in the collected set after the cover page (Sheet B 5.2);
+     an open dialog must never paint over it */
+  dialog.summary-slideover,
+  dialog.summary-slideover::backdrop {
+    display: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   12. Sections, blocks, callouts
+   -------------------------------------------------------------------------- */
+.section--h2 {
+  border-top: 1px solid var(--color-accent);
+  padding-top: var(--space-4);
+  background-image: var(--pattern-divider);
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 56px 3px;
+}
+.callout {
+  border-left-width: 3px;
+  border-radius: var(--radius-sm);
+  max-width: var(--measure);
+}
+.callout--statute {
+  background: var(--color-primary-soft);
+  border-left-color: var(--color-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+.callout--practice {
+  background: var(--color-accent-soft);
+  border-left-color: var(--color-accent);
+}
+.callout--currency {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--color-surface-alt);
+  border-left-color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: var(--fs-sm);
+  padding: var(--space-2) var(--space-3);
+}
+.callout--currency .currency-link {
+  margin-left: auto;
+  border-bottom: 1px solid var(--color-accent);
+  text-decoration: none;
+}
+.block.is-edited > .block-content {
+  background: var(--color-edit-bg);
+  border-left: 3px solid var(--color-edit-border);
+}
+.block-meta,
+.edited-marker {
+  font-family: var(--font-heading);
+}
+
+/* tables */
+th {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+th,
+td {
+  padding: var(--space-2) var(--space-3);
+}
+tbody tr:nth-child(even) {
+  background: var(--color-surface-alt);
+}
+table {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+}
+
+/* notes — unmistakably the user's, and legible in greyscale */
+.note {
+  background: var(--color-note-bg);
+  border: 1px solid var(--color-note-border);
+  border-left-width: 4px;
+  border-radius: var(--radius-sm);
+}
+.note-meta {
+  font-family: var(--font-heading);
+}
+
+/* checklists */
+.checklist-box {
+  accent-color: var(--color-primary);
+  width: 1.05em;
+  height: 1.05em;
+}
+.checklist-progress {
+  font-family: var(--font-heading);
+}
+
+/* glossary */
+abbr.abbr {
+  text-decoration: underline dotted var(--color-accent);
+  text-underline-offset: 3px;
+}
+.glossary-entry dt {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   13. Calculators
+   -------------------------------------------------------------------------- */
+.calculator {
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+.calculator-title {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+}
+.calculator-form,
+.calc-field,
+.calc-label,
+.calc-question {
+  font-family: var(--font-heading);
+}
+.calc-field input,
+.calc-field select {
+  font-family: var(--font-mono);
+}
+/* the output strip: highlighted, key number large */
+.calculator-output {
+  border-top: 1px solid var(--color-border);
+}
+.calc-out-table tr.calc-primary {
+  background: var(--color-primary-soft);
+}
+.calc-primary td,
+.calc-primary th {
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  color: var(--color-text);
+}
+.calc-primary th {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+.calc-value {
+  font-family: var(--font-mono);
+}
+.calc-formula summary {
+  font-family: var(--font-heading);
+}
+.calc-formula pre {
+  background: var(--color-surface-alt);
+  font-family: var(--font-mono);
+  line-height: 1.7;
+}
+.dev-note {
+  font-family: var(--font-heading);
+  color: var(--color-text-muted);
+}
+.bar-fill {
+  background: var(--color-primary);
+}
+.bar-row {
+  font-family: var(--font-heading);
+}
+
+/* walkthrough: an actual accounting record */
+.record-card {
+  border-left: 4px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+}
+.record-card-title {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+}
+.record-table {
+  font-family: var(--font-heading);
+}
+.record-table th {
+  background: none;
+  color: var(--color-text-muted);
+  font-weight: 400;
+  border: 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.record-table td {
+  text-align: right;
+  font-family: var(--font-mono);
+  border: 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.record-note {
+  font-family: var(--font-heading);
+  color: var(--color-text-muted);
+}
+.ledger-view td:nth-child(n + 3),
+.ledger-view th:nth-child(n + 3) {
+  text-align: right;
+}
+.ledger-view td {
+  font-family: var(--font-mono);
+}
+.wt-error {
+  background: var(--color-danger-bg);
+  border-left: 3px solid var(--color-danger-border);
+}
+
+/* --------------------------------------------------------------------------
+   14. Pages: calendar, citations, change log
+   -------------------------------------------------------------------------- */
+.calendar-timeline {
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  font-family: var(--font-heading);
+}
+.timeline-month {
+  flex: 1 0 auto;
+  border-top: 1px solid var(--color-accent);
+  padding-top: var(--space-2);
+  font-size: var(--fs-sm);
+}
+.timeline-month li::marker {
+  color: var(--color-primary);
+}
+.citation-instrument {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  border-bottom: 1px solid var(--color-accent);
+  padding-bottom: var(--space-2);
+}
+.citation-provision {
+  font-family: var(--font-mono);
+}
+.cite-list a,
+.citation-guide {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 1px 8px;
+  text-decoration: none;
+}
+.changelog-item {
+  border-radius: var(--radius-sm);
+}
+.diff ins {
+  background: var(--color-accent-soft);
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   15. Diagram slots — full content width, on surface, never on the pattern
+   -------------------------------------------------------------------------- */
+.diagram-slot {
+  max-width: none;
+  margin: var(--space-6) 0;
+  padding: var(--space-5);
+  background: var(--color-surface);
+  background-image: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+.diagram-slot svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.diagram-slot figcaption {
+  margin-top: var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  font-family: var(--font-heading);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+.diagram-placeholder {
+  font-family: var(--font-heading);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4);
+}
+
+
+/* --------------------------------------------------------------------------
+   15a. Fillable diagram cells (BUILD_NOTES 47)
+   Each cell is a <g data-fill-cell> holding its rect and a drawn
+   "YOUR NOTE" placeholder. When the app injects a <foreignObject>, the
+   placeholder hides itself.
+   -------------------------------------------------------------------------- */
+g[data-fill-cell] {
+  cursor: pointer;
+}
+g[data-fill-cell]:hover > rect {
+  fill: var(--color-accent-soft);
+}
+g[data-fill-cell]:has(foreignObject) .fill-placeholder {
+  display: none;
+}
+g[data-fill-cell] foreignObject {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--color-text);
+}
+g[data-fill-cell]:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   15b. Diagram interaction hooks (BUILD_NOTES 48)
+   src/app/diagram.js owns the behaviour; these are the visual states.
+   Everything here is neutralised in print.
+   -------------------------------------------------------------------------- */
+[data-anchor] {
+  cursor: pointer;
+}
+[data-anchor]:hover > rect:first-of-type {
+  stroke: var(--color-primary);
+  stroke-width: 2;
+}
+[data-anchor]:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+[data-sub] {
+  cursor: pointer;
+}
+[data-hover] > * {
+  transition: opacity 0.12s ease-out;
+}
+[data-hover]:hover > *:not(:hover) {
+  opacity: 0.38;
+}
+[data-hover] > *:hover {
+  opacity: 1;
+}
+.diagram-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1, 4px);
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-heading);
+  font-size: var(--fs-sm);
+}
+.diagram-tab {
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-primary);
+  cursor: pointer;
+}
+.diagram-tab:hover {
+  background: var(--color-row-hover);
+  border-color: var(--color-primary);
+}
+.diagram-tab[aria-selected='true'] {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+}
+@media print {
+  .diagram-tabs {
+    display: none;
+  }
+  [data-panel],
+  [data-tab] {
+    display: inline !important;
+    opacity: 1 !important;
+  }
+  [data-hover]:hover > *:not(:hover) {
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   16. Print — A4 portrait, 20mm margins, serif body at 10.5pt.
+   The pattern appears on the cover page only.
+   -------------------------------------------------------------------------- */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 20mm;
+  }
+  :root {
+    --fs-base: 10.5pt;
+    --color-bg: #ffffff;
+    --color-surface: #ffffff;
+    --color-surface-alt: #f4f1f8;
+    --pattern-header: none;
+    --pattern-divider: none;
+  }
+  body {
+    background: #fff;
+    color: #000;
+  }
+  .topbar,
+  .rail-left,
+  .rail-right,
+  .search-results,
+  .screen-only {
+    display: none !important;
+  }
+  .print-cover {
+    text-align: left;
+    padding-top: 40mm;
+    background-image: var(--pattern-corner);
+    background-repeat: no-repeat;
+    background-position: top right;
+    page-break-after: always;
+  }
+  .print-cover-title {
+    font-family: var(--font-heading);
+    font-size: 30pt;
+    line-height: 1.15;
+    color: var(--color-primary);
+    max-width: 22ch;
+    border-bottom: 1px solid var(--color-accent);
+    padding-bottom: 6mm;
+  }
+  .print-cover-firm,
+  .print-cover-date,
+  .print-cover-currency {
+    font-family: var(--font-heading);
+    font-size: 10pt;
+    color: #000;
+    margin: 2mm 0 0;
+  }
+  .print-running-head {
+    font-family: var(--font-heading);
+    font-size: 8.5pt;
+    color: var(--color-text-muted);
+    border-bottom: 0.5pt solid var(--color-border);
+    padding-bottom: 1mm;
+  }
+  /* table of contents: two levels, dot leaders, purple guide titles */
+  .print-toc,
+  .toc {
+    font-family: var(--font-heading);
+    font-size: 10pt;
+  }
+  .toc li {
+    list-style: none;
+    display: flex;
+    align-items: baseline;
+    gap: 2mm;
+  }
+  .toc > li > .toc-link {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+  .toc-link {
+    color: #000;
+    text-decoration: none;
+  }
+  .toc li::after {
+    content: '';
+    flex: 1;
+    border-bottom: 0.5pt dotted var(--color-border);
+    margin: 0 1mm;
+    order: 2;
+  }
+  .toc-page {
+    order: 3;
+    font-variant-numeric: tabular-nums;
+  }
+  /* each H2 starts a new page, with the gold divider rule */
+  .print-section,
+  .section--h2 {
+    page-break-before: always;
+    border-top: 0.75pt solid var(--color-accent);
+    background-image: none;
+  }
+  .section--h2:first-of-type {
+    page-break-before: avoid;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    page-break-after: avoid;
+    color: var(--color-primary);
+  }
+  /* diagrams never split across pages */
+  .diagram-slot,
+  figure {
+    page-break-inside: avoid;
+    border: 0.5pt solid var(--color-border);
+    padding: 4mm;
+  }
+  /* calculators print as a bordered table of inputs and outputs */
+  .calculator {
+    border: 0.75pt solid #000;
+    box-shadow: none;
+    page-break-inside: avoid;
+  }
+  .calc-print-table th,
+  .calc-print-table td,
+  .calculator-static th,
+  .calculator-static td {
+    border: 0.5pt solid var(--color-border);
+  }
+  /* tables repeat their header row */
+  thead {
+    display: table-header-group;
+  }
+  tr {
+    page-break-inside: avoid;
+  }
+  th {
+    background: var(--color-primary-soft) !important;
+    color: #000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  /* notes survive greyscale on border and label, not colour alone */
+  .note {
+    background: #fff !important;
+    border: 0.75pt solid #000;
+    border-left-width: 2.5pt;
+  }
+  .note-meta {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 7.5pt;
+    letter-spacing: 0.1em;
+  }
+  .block.is-edited > .block-content {
+    background: #fff !important;
+    border-left: 2pt dashed #000;
+  }
+  .callout {
+    border: 0.5pt solid #000;
+    border-left-width: 2.5pt;
+    background: #fff !important;
+  }
+  .callout--statute {
+    background: var(--color-primary-soft) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+  .print-colophon {
+    font-family: var(--font-heading);
+    font-size: 8.5pt;
+    color: var(--color-text-muted);
+  }
+}

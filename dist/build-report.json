@@ -1,0 +1,242 @@
+{
+  "builtAt": "2026-09-13T02:10:42.523Z",
+  "outputBytes": 2481771,
+  "notes": [
+    "[calendar row 9] Recurrence \"ANNUAL-FIXED(monthly)\" is coded ANNUAL-FIXED but reads as monthly; timeline treats it as monthly (month end)",
+    "[calendar row 53] Recurrence \"ANNUAL-FIXED(quarterly recommended)\" is coded ANNUAL-FIXED but reads as quarterly; timeline treats it as quarterly"
+  ],
+  "stats": {
+    "xrefs": [
+      {
+        "guide": "practice-management",
+        "name": "Anti-Money Laundering",
+        "target": "anti-money-laundering"
+      },
+      {
+        "guide": "trust-accounting",
+        "name": "Anti-Money Laundering",
+        "target": "anti-money-laundering"
+      },
+      {
+        "guide": "trust-accounting",
+        "name": "Cyber Security",
+        "target": "cyber-security"
+      },
+      {
+        "guide": "anti-money-laundering",
+        "name": "Trust Accounting",
+        "target": "trust-accounting"
+      },
+      {
+        "guide": "anti-money-laundering",
+        "name": "Practice Management",
+        "target": "practice-management"
+      },
+      {
+        "guide": "anti-money-laundering",
+        "name": "Risk Management",
+        "target": "risk-management"
+      },
+      {
+        "guide": "risk-management",
+        "name": "Anti-Money Laundering",
+        "target": "anti-money-laundering"
+      },
+      {
+        "guide": "risk-management",
+        "name": "Cyber Security",
+        "target": "cyber-security"
+      },
+      {
+        "guide": "risk-management",
+        "name": "Trust Accounting",
+        "target": "trust-accounting"
+      },
+      {
+        "guide": "risk-management",
+        "name": "Stress Management",
+        "target": "stress-management"
+      },
+      {
+        "guide": "cyber-security",
+        "name": "Risk Management",
+        "target": "risk-management"
+      },
+      {
+        "guide": "cyber-security",
+        "name": "Trust Accounting",
+        "target": "trust-accounting"
+      },
+      {
+        "guide": "cyber-security",
+        "name": "Risk Management",
+        "target": "risk-management"
+      },
+      {
+        "guide": "cyber-security",
+        "name": "Trust Accounting",
+        "target": "trust-accounting"
+      },
+      {
+        "guide": "cyber-security",
+        "name": "Risk Management",
+        "target": "risk-management"
+      },
+      {
+        "guide": "cyber-security",
+        "name": "Trust Accounting",
+        "target": "trust-accounting"
+      },
+      {
+        "guide": "cyber-security",
+        "name": "Anti-Money Laundering",
+        "target": "anti-money-laundering"
+      },
+      {
+        "guide": "stress-management",
+        "name": "Risk Management",
+        "target": "risk-management"
+      },
+      {
+        "guide": "tax-and-accounting",
+        "name": "Practice Management",
+        "target": "practice-management"
+      },
+      {
+        "guide": "tax-and-accounting",
+        "name": "Trust Accounting",
+        "target": "trust-accounting"
+      },
+      {
+        "guide": "tax-and-accounting",
+        "name": "Partnership Management",
+        "target": "partnership-management"
+      },
+      {
+        "guide": "tax-and-accounting",
+        "name": "Cyber Security",
+        "target": "cyber-security"
+      },
+      {
+        "guide": "tax-and-accounting",
+        "name": "Trust Accounting",
+        "target": "trust-accounting"
+      },
+      {
+        "guide": "tax-and-accounting",
+        "name": "Practice Management",
+        "target": "practice-management"
+      },
+      {
+        "guide": "tax-and-accounting",
+        "name": "Partnership Management",
+        "target": "partnership-management"
+      },
+      {
+        "guide": "attracting-and-selecting-talent",
+        "name": "Practice Management",
+        "target": "practice-management"
+      },
+      {
+        "guide": "attracting-and-selecting-talent",
+        "name": "Practice Management",
+        "target": "practice-management"
+      },
+      {
+        "guide": "attracting-and-selecting-talent",
+        "name": "People Management and Effective Supervision",
+        "target": "people-management-and-supervision"
+      },
+      {
+        "guide": "attracting-and-selecting-talent",
+        "name": "Risk Management",
+        "target": "risk-management"
+      },
+      {
+        "guide": "people-management-and-supervision",
+        "name": "Attracting and Selecting Talent",
+        "target": "attracting-and-selecting-talent"
+      },
+      {
+        "guide": "people-management-and-supervision",
+        "name": "Attracting and Selecting Talent",
+        "target": "attracting-and-selecting-talent"
+      },
+      {
+        "guide": "people-management-and-supervision",
+        "name": "Risk Management",
+        "target": "risk-management"
+      },
+      {
+        "guide": "people-management-and-supervision",
+        "name": "Risk Management",
+        "target": "risk-management--s8-6"
+      },
+      {
+        "guide": "people-management-and-supervision",
+        "name": "Practice Management",
+        "target": "practice-management"
+      },
+      {
+        "guide": "people-management-and-supervision",
+        "name": "Attracting and Selecting Talent",
+        "target": "attracting-and-selecting-talent"
+      },
+      {
+        "guide": "people-management-and-supervision",
+        "name": "Partnership Management",
+        "target": "partnership-management"
+      },
+      {
+        "guide": "people-management-and-supervision",
+        "name": "Risk Management",
+        "target": "risk-management--s8"
+      },
+      {
+        "guide": "people-management-and-supervision",
+        "name": "Stress Management",
+        "target": "stress-management"
+      },
+      {
+        "guide": "partnership-management",
+        "name": "Tax and Accounting",
+        "target": "tax-and-accounting"
+      },
+      {
+        "guide": "partnership-management",
+        "name": "Practice Management",
+        "target": "practice-management"
+      },
+      {
+        "guide": "partnership-management",
+        "name": "Trust Accounting",
+        "target": "trust-accounting"
+      },
+      {
+        "guide": "partnership-management",
+        "name": "Practice Management",
+        "target": "practice-management--s6"
+      },
+      {
+        "guide": "partnership-management",
+        "name": "Risk Management",
+        "target": "risk-management--s9-1"
+      },
+      {
+        "guide": "partnership-management",
+        "name": "Trust Accounting",
+        "target": "trust-accounting--s3-4"
+      }
+    ],
+    "glossaryMarks": 204,
+    "checklists": 41,
+    "citations": 267,
+    "unknownInstrumentIds": [],
+    "headings": 659,
+    "blocks": 1839,
+    "diagramsInlined": 49,
+    "diagramBytes": 256172,
+    "theme": true
+  },
+  "ms": 127
+}

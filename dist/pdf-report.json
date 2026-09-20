@@ -1,0 +1,34 @@
+{
+  "out": "C:\\Users\\ivane\\Desktop\\LPMC Notes\\Notes Page\\Source\\dist\\PracticeGuides.pdf",
+  "pages": 381,
+  "tocStart": 3,
+  "tocEnd": 7,
+  "verification": [
+    {
+      "id": "practice-management--s1",
+      "text": "1. Introduction to Practice and Financial Management",
+      "tocPage": 9,
+      "actualPage": 9,
+      "ok": true
+    },
+    {
+      "id": "cyber-security--s8",
+      "text": "8. The citizen developer problem",
+      "tocPage": 220,
+      "actualPage": 220,
+      "ok": true
+    },
+    {
+      "id": "partnership-management--s11",
+      "text": "11. Checklist",
+      "tocPage": 358,
+      "actualPage": 358,
+      "ok": true
+    }
+  ],
+  "allOk": true,
+  "missingTocEntries": [],
+  "controlsVisible": 0,
+  "staticCalculators": 25,
+  "outline": true
+}

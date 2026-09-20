@@ -1,0 +1,95 @@
+{
+  "ranAt": "2026-09-13T02:11:15.275Z",
+  "results": [
+    {
+      "name": "4. Opening #trust-accounting--s9-2 scrolls to the heading, expanded (even if previously collapsed)",
+      "status": "pass",
+      "ms": 1527
+    },
+    {
+      "name": "5. Prev/next guide links traverse all ten in order (and back)",
+      "status": "pass",
+      "ms": 3697
+    },
+    {
+      "name": "6. Search \"rule 42\": all guides hits Trust Accounting and Tax and Accounting; This guide only from Cyber Security returns none",
+      "status": "pass",
+      "ms": 454
+    },
+    {
+      "name": "7. Editing a block to add \"zebrafish\" makes it searchable",
+      "status": "pass",
+      "ms": 1583
+    },
+    {
+      "name": "8. Note persists across reload; exported file opened in a fresh profile contains the note",
+      "status": "pass",
+      "ms": 2100
+    },
+    {
+      "name": "9. Edit persists across reload; Revert to original restores exact original HTML",
+      "status": "pass",
+      "ms": 2135
+    },
+    {
+      "name": "10. Reorder two blocks by drag; reload; order persists; Restore original order works",
+      "status": "pass",
+      "ms": 2702
+    },
+    {
+      "name": "11. Overlay above 4 MB falls back to IndexedDB without data loss",
+      "status": "pass",
+      "ms": 3790
+    },
+    {
+      "name": "12. Calculator UI shows the worked-example outputs with default inputs",
+      "status": "pass",
+      "ms": 1657
+    },
+    {
+      "name": "13. Walkthrough: $5,000 receipt then $6,000 bill blocked; $3,000 bill Method 1 shows earliest date = today + 7 weekdays and balance $2,000",
+      "status": "pass",
+      "ms": 1064
+    },
+    {
+      "name": "14. Tick three checklist items; reload; progress bar reads correctly (run on Practice Management §10 - Trust Accounting has no checklist)",
+      "status": "pass",
+      "ms": 1143
+    },
+    {
+      "name": "15. Master calendar: landing \"Next 30 days\" and calendar timeline render; June 30 logic unit-tested",
+      "status": "pass",
+      "ms": 698
+    },
+    {
+      "name": "16. Citations index lists act-2014-16a s 34 with Trust Accounting §3.1 and People Management §11",
+      "status": "pass",
+      "ms": 144
+    },
+    {
+      "name": "18. Print mode: all sections expanded, no controls visible, calculators static, notes labelled",
+      "status": "pass",
+      "ms": 1556
+    },
+    {
+      "name": "Glossary: in-text abbr marks, hover definition, click-through and back link",
+      "status": "pass",
+      "ms": 721
+    },
+    {
+      "name": "Cross references, legislation links, currency banner, collapsed state persistence, change log",
+      "status": "pass",
+      "ms": 1626
+    },
+    {
+      "name": "Move block to another section, reorder sections in the rail (edit mode), settings reset",
+      "status": "pass",
+      "ms": 3034
+    },
+    {
+      "name": "Design integration: slide-over summary, inlined diagrams with unique ids, fillable cell round-trip, theme applied",
+      "status": "pass",
+      "ms": 1633
+    }
+  ]
+}
